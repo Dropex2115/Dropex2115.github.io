@@ -1,9 +1,7 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <style>
-        @import url('StyleSheet.css');
-    </style>
+    <link href="style.css" type="text/css" rel="stylesheet" />
     <meta charset="utf-8" />
     <title></title>
 </head>
