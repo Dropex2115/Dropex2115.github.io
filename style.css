@@ -1,7 +1,7 @@
 ﻿body, html {
     background-image: url("tlo-do-strony-internetowej.jpg");
     background-repeat: repeat;
-    width: 99.8%;
+    width: 99.7%;
     height: 100%;
 }
 
@@ -37,7 +37,7 @@ h1 {
 
 .mid_panel {
     color: white;
-    font-size: 5vh;
+    font-size: 4vh;
     text-align: center;
     font-family: zillaslab,palatino,"Palatino Linotype",serif;
     border: solid;
