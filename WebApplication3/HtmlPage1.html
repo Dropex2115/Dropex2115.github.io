@@ -1,0 +1,263 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        body, html {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            background-image: url('bg.jpg');
+            position: relative;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: 50%;
+            font-family: Helvetica, sans-serif;
+            z-index:2;
+        }
+        .main_div {
+            width: 100%;
+            height: 100%;
+            background-image: url('bodybuilder_50.png');
+            background-size: cover;
+            overflow:hidden;
+            
+        }
+        .baner {
+            height: 14%;
+            width: 100%;
+            border-bottom: solid 3px #1a1a1a;
+            margin-top: 3px;
+            text-align: center;
+            background-color: #262626;
+            opacity: 0.5;
+            margin: 0;
+        }
+        .mid_div {
+            width: 100%;
+            height:80%;
+            display:inline-flex;
+            
+        }
+        .left_panel {
+            width: 20%;
+            height: 100%;
+            z-index:3;
+
+        }
+        .form_head {
+            width: 100%;
+            height: 5%;
+            text-align: center;
+            color: #bfbfbf;
+        }
+        .selection_window {
+            width: 100%;
+            height: 5%;
+            text-align: center;
+            
+        }
+        .checkbox {
+            width: 100%;
+            height: 5%;
+            padding-top: 25px;
+            padding-bottom: 25px;
+            text-align: center;
+            font-size: 3vh;
+            color: #bfbfbf;
+        }
+        .input_div {
+            width: 100%;
+            height: 70%;
+        }
+        .placeholder_div {
+            width: 100%;
+            height: 70%;
+            padding-left: 15px;
+          
+        
+        }
+        
+       
+        .mid_panel {
+            width: 60%;
+            height: 100%;
+           
+            
+        }
+        .right_panel {
+            width: 20%;
+            height: 100%;
+          
+        }
+        .right_head {
+            width: 100%;
+            height: 5%;
+            text-align: center;
+            color: #bfbfbf;
+        }
+        .right_map{
+            
+        }
+        .footer {
+            width: 100%;
+            height: 15%;
+            border-top: solid 3px #1a1a1a;
+        }
+        h1 {
+            margin: 0;
+            color: #d9d9d9;
+            padding:35px;
+            font-size:4vh;
+        }
+
+        td {
+            padding-right: 25px;
+            background-color: #262626;
+            font-size: 3vh;
+            border: solid black 1px;
+            text-align: center;
+            color: #bfbfbf;
+        }
+            td:hover {
+                background-color: #1a1a1a;
+                cursor: pointer;
+            }
+            td:active {
+                background-color:#0d0d0d
+            }
+       label{
+           padding-right:15px;
+           cursor:pointer;
+       }
+        input {
+            font-size: 24px;
+            margin-top: 24px;
+        }
+
+       
+    </style>
+
+    <script>
+
+       
+      
+        function oblicz(form) {
+
+            
+            var wzrost = form.wzrost / 100;
+            var bmi = form.waga / (wzrost * wzrost);
+
+
+            
+
+
+            if (bmi <= 18.5) {
+                return ("Niedowaga " + bmi.toFixed(2));
+            }
+            else if (bmi <= 24.9) {
+                return (" waga prawidłowa " + bmi.toFixed(2));
+            }
+            else if (bmi <= 29.9) {
+                return ("nadwaga " + bmi.toFixed(2));
+            }
+            else if (bmi <= 34.9) {
+                return ("ulany " + bmi.toFixed(2));
+            }
+            else if (bmi >= 35) {
+                return ("krytyczna nadwaga " + bmi.toFixed(2));
+            }
+
+
+
+        }
+    </script>
+    
+</head>
+<body>
+
+    <div class="main_div">
+
+        <div class="baner">
+            <h1>Sprawdź swoje ciało </h1>
+        </div>
+
+        <div class="mid_div">
+
+            <div class="left_panel">
+
+                <div class="form_head"><h2>Formularz</h2></div>
+
+                <div class="selection_window">
+
+                    <table>
+                        <tr>
+                            <td>BMI</td>
+                            <td>WHR</td>
+                            <td>AMR</td>
+                            <td>MBR</td>
+                           
+                           
+                        </tr>
+                    </table>
+
+                </div>
+
+                <form class="input_div">
+
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" />
+                            Kobieta
+                        </label>
+
+                        <label>
+                            <input type="checkbox" />
+                            Mężczyzna
+                        </label>
+                        
+                    </div>
+                  
+                    <div class="placeholder_div">
+                        <label> <input placeholder="podaj swoją wage" name="waga" type="number" /></label>
+                        <label><input placeholder="podaj swój wzrost" name="wzrost" type="number"  /></label>
+                        <label><input placeholder="podaj swój wiek" name="wiek" type="number"  /></label>
+                        <label style="padding-left:100px"><input type="button"value="oblicz" onclick="oblicz(this.form)"  /></label>
+
+
+
+                    </div>
+
+                    
+                </form>
+
+            </div>
+
+
+
+
+
+
+
+
+
+            <div class="mid_panel"></div>
+
+            <div class="right_panel">
+                <div class="right_head"><h2>Dowiedz się więcej</h2></div>
+
+            </div>
+
+
+        </div>
+
+       
+
+        <div class="footer"></div>
+
+
+
+    </div>
+</body>
+</html>
