@@ -1,0 +1,434 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        body, html {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            background-image: url('bg.jpg');
+            position: relative;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: 50%;
+            font-family: Helvetica, sans-serif;
+            z-index: 2;
+        }
+
+        .main_div {
+            width: 100%;
+            height: 100%;
+            background-image: url('bodybuilder_50.png');
+            background-size: cover;
+            overflow: hidden;
+        }
+
+        .baner {
+            height: 14%;
+            width: 100%;
+            
+            margin-top: 3px;
+            text-align: center;
+            background-color: rgba(38, 38, 38, 0.3);
+            margin: 0;
+        }
+
+        .mid_div {
+            width: 100%;
+            height: 80%;
+            display: inline-flex;
+        }
+
+        .left_panel {
+            width: 20%;
+            height: 100%;
+            z-index: 3;
+        }
+
+        .form_head {
+            width: 100%;
+            height: 5%;
+            text-align: center;
+            color: #bfbfbf;
+        }
+
+        .selection_window {
+            width: 100%;
+            height: 5%;
+            text-align: center;
+        }
+
+        .checkbox {
+            width: 100%;
+            height: 5%;
+            padding-top: 25px;
+            padding-bottom: 25px;
+            text-align: center;
+            font-size: 3vh;
+            color: #bfbfbf;
+        }
+
+        .input_div {
+            width: 100%;
+            height: 70%;
+        }
+
+        .placeholder_div {
+            width: 100%;
+            height: 70%;
+            padding-left: 15px;
+        }
+
+
+        .mid_panel {
+            width: 59%;
+            height: 100%;
+            color: red;
+        }
+        .mid_head {
+            width: 80%;
+            height: 5%;
+            text-align: center;
+            color: #bfbfbf;
+            background-color: #1a1a1a;
+            margin:auto;
+        }
+        .mid_info {
+            width: 80%;
+            height: 70%;
+            background-color: rgba(26, 26, 26, 0.5);
+            display: flex;
+            color: #bfbfbf;
+            background-size: cover;
+            
+            margin: auto;
+        }
+            
+
+        .right_panel {
+            width: 20%;
+            height: 100%;
+            
+        }
+
+        .right_head {
+            width: 100%;
+            height: 5%;
+            text-align: center;
+            color: #bfbfbf;
+            background-color: #1a1a1a;
+           
+            
+            
+        }
+
+        .right_map {
+            width: 100%;
+            height: 70%;
+            background-color: rgba(26, 26, 26, 0.5);
+            display: flex;
+            color: #bfbfbf;
+            background-size: cover;
+        }
+        #rightMap {
+            padding-left: 10px;
+            
+            
+        }
+        .ad {
+            width: 100%;
+            height: 13%;
+            background-color: rgba(26, 26, 26, 0.5);
+            display: flex;
+            color: #bfbfbf;
+            background-size: cover;
+        }
+
+
+        .footer {
+            width: 100%;
+            height: 15%;
+            border-top: solid 3px #1a1a1a;
+            text-align:center;
+            font-size:2vw;
+        }
+       
+        
+        a {
+            color: #bbbbbb;
+            text-decoration: none;
+            padding-left: 3vw;
+            
+            
+        }
+          
+
+
+        .img {
+            position: absolute;
+            margin-top: 36vh;
+            margin-left:0.4vw;
+        }
+        h1 {
+            margin: 0;
+            color: #d9d9d9;
+            padding: 35px;
+            font-size: 4vh;
+        }
+
+
+        td {
+            padding-right: 25px;
+            background-color: #262626;
+            font-size: 3vh;
+            border: solid black 1px;
+            text-align: center;
+            color: #bfbfbf;
+            
+        }
+
+            td:hover {
+                background-color: #1a1a1a;
+                cursor: pointer;
+            }
+
+            td:active {
+                background-color: #0d0d0d
+            }
+
+        label {
+            padding-right: 15px;
+            cursor: pointer;
+        }
+
+        input {
+            font-size: 24px;
+            margin-top: 24px;
+        }
+        h3 {
+            font-size: 4vw;
+            margin: auto;
+            color: white;
+            position: relative;
+        }
+        hr{
+            margin-top:2vw;
+            width:80%;
+        }
+        
+        
+    </style>
+
+    <script>
+        function oblicz(form) {
+
+
+            var wzrost = form.wzrost.value / 100;
+            var bmi = form.waga.value / (wzrost * wzrost);
+
+            var midPanel = document.getElementById("mid_panel");
+            var text = document.getElementById("text");
+            
+
+
+            if (bmi <= 18.5) {
+                midPanel.innerHTML = "Niedowaga " + bmi.toFixed(2);
+                document.getElementById("mid_panel").style.color = "red"
+
+
+                document.getElementById("text").innerHTML = " Masa ciała jest zbyt niska. Skontaktuj się ze swoim lekarzem, który przeprowadzi wywiad medyczny i być może zleci  modyfikację diety.";
+                document.getElementById("text").style.fontSize = "3vh";
+                document.getElementById("text").style.padding = "5vh";
+            }
+            else if (bmi <= 24.9) {
+                midPanel.innerHTML = " waga prawidłowa " + bmi.toFixed(2);
+                document.getElementById("mid_panel").style.color = "green"
+                document.getElementById("text").innerHTML = "Masa ciała jest prawidłowa. Dbaj o bogatą w warzywa i owoce dietę oraz codzienną dawkę sportu, aby utrzymać dobrą formę.";
+                document.getElementById("text").style.fontSize = "3vh";
+                document.getElementById("text").style.padding = "5vh";
+            }
+            else if (bmi <= 29.9) {
+                midPanel.innerHTML = "lekka nadwaga " + bmi.toFixed(2);
+                document.getElementById("mid_panel").style.color = "yellow"
+                document.getElementById("text").innerHTML = "Masa ciała jest zbyt wysoka. Rozważ konsultację lekarską i modyfikację stylu życia.";
+                document.getElementById("text").style.fontSize = "3vh";
+                document.getElementById("text").style.padding = "5vh";
+            }
+           
+            else if (bmi >= 35) {
+                midPanel.innerHTML = "krytyczna nadwaga " + bmi.toFixed(2);
+                document.getElementById("mid_panel").style.color = "red"
+                document.getElementById("text").innerHTML = "Masa ciała jest zbyt Masa ciała jest zbyt wysoka, wartości BMI wskazuje na rozwijającą się otyłość I stopnia. Skontaktuj się ze swoim lekarzem, który zarekomenduje modyfikację diety i wprowadzenie codziennej dawki ruchu. Wdrażając zmiany, unikniesz powikłań otyłości i zachowasz zdrowie na dłużej.wysoka. Rozważ konsultację lekarską i modyfikację stylu życia.";
+                document.getElementById("text").style.fontSize = "3vh";
+                document.getElementById("text").style.padding = "5vh";
+
+
+            }
+
+            
+        }
+
+
+      
+
+
+
+
+
+        function BMI() {
+
+            document.getElementById("rightMap").innerHTML = "BMI - To wskaźnik masy ciała, powstały przez podzielenie masy ciała podanej w kilogramach przez kwadrat wysokości podanej w metrach. Klasyfikacja wskaźnika BMI została opracowana wyłącznie dla dorosłych i nie może być stosowana u dzieci. <hr>";
+            var input = document.getElementById("Input");
+            input.placeholder = "Podaj swoją wage";
+            var input = document.getElementById("Input2");
+            input.placeholder = "Podaj swój wzrost";
+           
+        }
+
+        function WHR() {
+
+            document.getElementById("rightMap").innerHTML = "Stosunek obwodu talii do obwodu bioder, WHR – współczynnik wynikający podzielenia obwodu talii przez obwód bioder. Stanowi on wskaźnik dystrybucji tkanki tłuszczowej w ciele człowieka. <hr>";
+            var input = document.getElementById("Input");
+            input.placeholder = "Podaj obwód talii";
+            var input = document.getElementById("Input2");
+            input.placeholder = "Podaj obwód bioder";
+
+        }
+
+        function AMR() {
+
+            document.getElementById("rightMap").innerHTML = "AMR- dzienny poziom energii jaką powinniśmy spożywać, aby utrzymać naszą masę ciała na stałym poziomie. Wskaźnik całkowitej przemiany materii, to podstawowa przemiana materii (BMR) powiększona o ilość energii, którą potrzebujemy na aktywność i wysiłek fizyczny w ciągu doby <hr>";
+            var input = document.getElementById("Input");
+            input.placeholder = "Podaj obwód dicka";
+            var input = document.getElementById("Input2");
+            input.placeholder = "Podaj swoje losową liczbe";
+        }
+        function BMR() {
+
+            document.getElementById("rightMap").innerHTML = " Podstawowa przemiana materii – najmniejsze tempo przemiany materii, zachodzącej w organizmie człowieka, niezbędne do podtrzymania podstawowych funkcji życiowych<hr>";
+            var input = document.getElementById("Input");
+            input.placeholder = "Podaj ile w bicku";
+            var input = document.getElementById("Input2");
+            input.placeholder = "Podaj maksy na klacie";
+        }
+        
+
+
+        
+
+    </script>
+
+</head>
+<body>
+
+    <div class="main_div">
+
+        <div class="baner">
+            <h1>Sprawdź swoje ciało </h1>
+        </div>
+
+        <div class="mid_div">
+
+            <div class="left_panel">
+
+                <div class="form_head"><h2>Formularz</h2></div>
+
+                <div class="selection_window">
+
+                    <table>
+                        <tr>
+                            <td onclick="BMI()">BMI</td>
+                            <td onclick="WHR()">WHR</td>
+                            <td onclick="AMR()">AMR</td>
+                            <td onclick="BMR()">BMR</td>
+
+
+                        </tr>
+                    </table>
+
+                </div>
+
+                <form class="input_div">
+
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" />
+                            Kobieta
+                        </label>
+
+                        <label>
+                            <input id="check" type="checkbox" />
+                            Mężczyzna
+                        </label>
+
+                    </div>
+
+                    <div class="placeholder_div">
+                        <label> <input id="Input" placeholder="Podaj swoją wage" name="waga" type="number" /></label>
+                        <label><input id="Input2" placeholder="Podaj swój wzrost" name="wzrost" type="number" /></label>
+                        <label><input placeholder="podaj swój wiek" name="wiek" type="number" /></label>
+                        <label style="padding-left:100px"><input type="button" value="oblicz" onclick="oblicz(this.form) " /></label>
+
+
+
+                    </div>
+
+
+                </form>
+
+            </div>
+
+
+
+
+
+
+
+
+
+            <div  class="mid_panel">
+
+                <div class="mid_head"><h2 style="padding-top:4px;" id="mid_panel"></h2></div>
+
+                <div class="mid_info">
+
+                    <h3 id="text">WPROWADŹ DANE</h3>
+                
+                </div>
+            </div>
+
+
+            <div class="right_panel">
+                <div class="right_head"><h2 style="padding-top:4px;">Dowiedz się więcej</h2></div>
+
+
+                <div class="right_map"><h2 id="rightMap">BMI - To wskaźnik masy ciała, powstały przez podzielenie masy ciała podanej w kilogramach przez kwadrat wysokości podanej w metrach. Klasyfikacja wskaźnika BMI została opracowana wyłącznie dla dorosłych i nie może być stosowana u dzieci.<hr />  </h2>
+                
+                                       <img class="img" src="advertisement.jpg" height="145"/>
+                
+                </div>
+
+                
+
+            </div>
+
+
+        </div>
+
+
+
+        <div class="footer">
+
+            <a href="#">Trener personaly</a>
+            <a href="#">Dietetyk</a>
+            <a href="#">Siłownie w pobliżu</a>
+
+        </div>
+
+
+
+    </div>
+</body>
+</html>
