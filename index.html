@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -79,6 +79,7 @@
             width: 100%;
             height: 70%;
             padding-left: 15px;
+       
         }
 
 
@@ -228,6 +229,10 @@
         #BMR_button{
             display:none;
         }
+        .display_none{
+            display:none;
+            
+        }
         
     </style>
 
@@ -266,22 +271,22 @@
                 <form class="input_div">
 
                     <div class="checkbox">
-                        <label>
+                        <label id="kobieta" style="display:none">
                             <input type="checkbox" />
                             Kobieta
                         </label>
 
-                        <label>
+                        <label id="mężczyzna" style="display:none">
                             <input id="check" type="checkbox" />
                             Mężczyzna
                         </label>
 
                     </div>
 
-                    <div class="placeholder_div">
-                        <label> <input id="Input" placeholder="Podaj swoją wage" name="input1" type="number" /></label>
+                    <div class="placeholder_div" id="placeholder_div" >
+                        <label> <input style="margin-top:-20vh" id="Input" placeholder="Podaj swoją wage" name="input1" type="number" /></label>
                         <label><input id="Input2" placeholder="Podaj swój wzrost" name="input2" type="number" /></label>
-                        <label><input placeholder="podaj swój wiek" name="wiek" type="number" /></label>
+                        <label> <input style="display:none" id="Input_Bmr" placeholder="podaj swój wiek" name="wiek" type="number" /></label>
                         <label style="padding-left:100px" id="BMI_button"><input type="button" value="oblicz" onclick="obliczBMI(this.form) " /></label>
                         <label style="padding-left:100px" id="WHR_button"><input type="button" value="oblicz" onclick="obliczWHR(this.form) " /></label>
                         <label style="padding-left:100px" id="AMR_button"><input type="button" value="oblicz" onclick="oblicz(this.form) " /></label>
@@ -354,7 +359,9 @@
         var whrButton = document.getElementById("WHR_button");
         var amrButton = document.getElementById("AMR_button");
         var bmrButton = document.getElementById("BMR_button");
-        var bmrInput = document.getElementById("BMR_button")
+        var inputBMR = document.getElementById("Input_Bmr")
+        var mężczyzna = document.getElementById("mężczyzna")
+        var kobieta = document.getElementById("kobieta")
 
         function obliczBMI(form) {
 
@@ -461,8 +468,10 @@
             whrButton.style.display = "none";
             amrButton.style.display = "none";
             bmrButton.style.display = "none";
-
-
+            inputBMR.style.display = "none";
+            kobieta.style.display = "none"
+            mężczyzna.style.display = "none"
+            
         }
 
         function WHR() {
@@ -476,7 +485,10 @@
             whrButton.style.display = "block";
             amrButton.style.display = "none";
             bmrButton.style.display = "none";
-
+            inputBMR.style.display = "none";
+            kobieta.style.display = "none"
+            mężczyzna.style.display = "none"
+            
 
         }
 
@@ -491,6 +503,10 @@
             whrButton.style.display = "none";
             amrButton.style.display = "block";
             bmrButton.style.display = "none";
+            inputBMR.style.display = "none";
+            kobieta.style.display = "none"
+            mężczyzna.style.display = "none"
+         
 
         }
         function BMR() {
@@ -504,8 +520,10 @@
             whrButton.style.display = "none";
             amrButton.style.display = "none";
             bmrButton.style.display = "block";
-
-             
+            inputBMR.style.display = "block";
+            kobieta.style.display = "inline"
+            mężczyzna.style.display = "inline"
+            document.getElementById("placeholder_div").style.marginTop = "5vh"
 
         }
 
