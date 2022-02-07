@@ -78,7 +78,7 @@
         .placeholder_div {
             width: 100%;
             height: 70%;
-            padding-left: 15px;
+            padding-left: 2vw;
        
         }
 
@@ -179,7 +179,9 @@
             font-size: 4vh;
         }
 
-
+        table {
+            margin: auto;
+        }
 
         td {
             padding-right: 25px;
@@ -188,6 +190,7 @@
             border: solid black 1px;
             text-align: center;
             color: #bfbfbf;
+            
             
         }
 
@@ -201,13 +204,16 @@
             }
 
         label {
-            padding-right: 15px;
+            margin: auto;
             cursor: pointer;
         }
 
         input {
             font-size: 24px;
+           
             margin-top: 24px;
+
+            
         }
         h3 {
             font-size: 4vw;
@@ -220,9 +226,7 @@
             width:80%;
         }
         
-        #AMR_button{
-            display:none;
-        }
+      
         #WHR_button{
             display:none;
         }
@@ -259,7 +263,7 @@
                         <tr>
                             <td onclick="BMI()">BMI</td>
                             <td onclick="WHR()">WHR</td>
-                            <td onclick="AMR()">AMR</td>
+                         
                             <td onclick="BMR()">BMR</td>
 
 
@@ -289,7 +293,7 @@
                         <label> <input style="display:none" id="Input_Bmr" placeholder="podaj swój wiek" name="wiek" type="number" /></label>
                         <label style="padding-left:100px" id="BMI_button"><input type="button" value="oblicz" onclick="obliczBMI(this.form) " /></label>
                         <label style="padding-left:100px" id="WHR_button"><input type="button" value="oblicz" onclick="obliczWHR(this.form) " /></label>
-                        <label style="padding-left:100px" id="AMR_button"><input type="button" value="oblicz" onclick="oblicz(this.form) " /></label>
+                        
                         <label style="padding-left:100px" id="BMR_button"><input type="button" value="oblicz" onclick="obliczBMR(this.form) " /></label>
 
 
@@ -357,7 +361,7 @@
     <script>
         var bmiButton = document.getElementById("BMI_button");
         var whrButton = document.getElementById("WHR_button");
-        var amrButton = document.getElementById("AMR_button");
+    
         var bmrButton = document.getElementById("BMR_button");
         var inputBMR = document.getElementById("Input_Bmr")
         var mężczyzna = document.getElementById("mężczyzna")
@@ -466,7 +470,7 @@
             input.placeholder = "Podaj swój wzrost";
             bmiButton.style.display = "block";
             whrButton.style.display = "none";
-            amrButton.style.display = "none";
+          
             bmrButton.style.display = "none";
             inputBMR.style.display = "none";
             kobieta.style.display = "none"
@@ -483,7 +487,7 @@
             input.placeholder = "Podaj obwód bioder";
             bmiButton.style.display = "none";
             whrButton.style.display = "block";
-            amrButton.style.display = "none";
+          
             bmrButton.style.display = "none";
             inputBMR.style.display = "none";
             kobieta.style.display = "none"
@@ -492,23 +496,7 @@
 
         }
 
-        function AMR() {
-
-            document.getElementById("rightMap").innerHTML = "AMR- dzienny poziom energii jaką powinniśmy spożywać, aby utrzymać naszą masę ciała na stałym poziomie. Wskaźnik całkowitej przemiany materii, to podstawowa przemiana materii (BMR) powiększona o ilość energii, którą potrzebujemy na aktywność i wysiłek fizyczny w ciągu doby <hr>";
-            var input = document.getElementById("Input");
-            input.placeholder = "Podaj obwód dicka";
-            var input = document.getElementById("Input2");
-            input.placeholder = "Podaj swoje losową liczbe";
-            bmiButton.style.display = "none";
-            whrButton.style.display = "none";
-            amrButton.style.display = "block";
-            bmrButton.style.display = "none";
-            inputBMR.style.display = "none";
-            kobieta.style.display = "none"
-            mężczyzna.style.display = "none"
-         
-
-        }
+        
         function BMR() {
 
             document.getElementById("rightMap").innerHTML = " Podstawowa przemiana materii – najmniejsze tempo przemiany materii, zachodzącej w organizmie człowieka, niezbędne do podtrzymania podstawowych funkcji życiowych<hr>";
@@ -518,7 +506,7 @@
             input.placeholder = "Podaj swój wzrost";
             bmiButton.style.display = "none";
             whrButton.style.display = "none";
-            amrButton.style.display = "none";
+           
             bmrButton.style.display = "block";
             inputBMR.style.display = "block";
             kobieta.style.display = "inline"
